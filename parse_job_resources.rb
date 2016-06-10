@@ -3,51 +3,42 @@ require 'pry'
 require 'csv'
 require 'net/http'
 
+def test_url(url)
+  begin
+    uri = URI(url[/http.+(\/|$)/])
+    puts "Testing #{url}\n"
+    @res = Net::HTTP.get_response(uri)
+    return true
+  rescue
+    @res = "Net:HTTP Error"
+    return false
+  end
+end
+
 csv = CSV.read('job_resources.csv')
-new_csv = []
 csv.each do |arr|
   arr.compact!
-  arr.pop if arr.length > 1
-  new_csv.concat(arr)
 end
 
-urls = Hash.new {|urls, key| urls[key] = []}
+find_url = Proc.new {|i| i[/http/]}
 
-new_csv.each do |val|
-  if val[/http/] == 'http'
-    urls[@key] << {
-                    url: val,
-                    status: nil
-                  }
-  else
-    @key = val.downcase.gsub('/','').gsub(/ {1,}/,"_").to_sym
+csv.each_with_index do |row|
+  next unless url = row.select(&find_url)[0]
+  next if row[1] == '200' || row[1] == '302'
+  test_url(url) ? res = @res.code : res = @res
+  puts "Result: #{res}\n"
+  row[1] = res
+  if res == '301'
+    redirect = @res.header['location']
+    if test_url(redirect) && @res.code == "200"
+      row[0] = redirect
+      row[1] = '200'
+    end
   end
 end
-urls.each do |group, arr|
-  arr.each do |hash|
-    hash[:url]
-    next unless hash[:status] == nil
-    uri = URI(hash[:url])
-    begin
-      res = Net::HTTP.get_response(uri)
-    rescue
-      # this rescue was written when SSL cert check failed causing Net:HTTP
-      # to trow and error crashing the script
-      puts "Get request failed"
-      hash[:status] == 'Net:HTTP Error'
-      next
-    end
-    puts res.code
-    hash[:status] = res.code
-  end
-end
-print urls
 
-CSV.open('job_resources_checked.csv', "wb") do |csv|
-  urls.each do |key, arr|
-    csv << [key.to_s]
-    arr.each do |hash|
-      csv << [hash[:url], hash[:status]]
-    end
+CSV.open('job_resources_checked.csv', "wb") do |row|
+  csv.each do |new_row|
+    row << new_row
   end
 end
