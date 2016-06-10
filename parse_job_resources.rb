@@ -3,6 +3,8 @@ require 'pry'
 require 'csv'
 require 'net/http'
 
+find_url = Proc.new {|i| i[/http/]}
+
 def test_url(url)
   begin
     uri = URI(url[/http.+(\/|$)/])
@@ -19,8 +21,6 @@ csv = CSV.read('job_resources.csv')
 csv.each do |arr|
   arr.compact!
 end
-
-find_url = Proc.new {|i| i[/http/]}
 
 csv.each_with_index do |row|
   next unless url = row.select(&find_url)[0]
