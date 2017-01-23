@@ -1,10 +1,10 @@
 URL,Status,New URL
 Random resources,"This page is sorted, but might not have all the links from the bulk page. Please share"
-http://hackersurfing.com/,404,Form Link
-https://techmeabroad.com/,Net:HTTP Error
+http://hackersurfing.com/,200,Form Link
+https://techmeabroad.com/,404
 http://www.yourrate.co/,200
 Women In Tech
-https://www.powertofly.com/jobs,301,https://www.powertofly.com/jobs/
+https://www.powertofly.com/jobs,301,https://powertofly.com/jobs
 Charleston
 http://www.charlestonworks.com/,200
 http://www.charlestondigitalcorridor.com/talent/jobs/,301,http://www.charlestondigitalcorridor.com/talent/portal/jobs/
@@ -34,8 +34,8 @@ http://frontenddeveloperjob.com/,200
 https://www.linkedin.com/job/home?trk=hb_tab_jobs_top,302
 http://authenticjobs.com,302
 http://perks.io,301,https://perks.io/
-http://jobety.com/,301
-http://careers.stackoverflow.com/jobs,301,https://stackoverflow.com/jobs?t=c&r=redirect
+http://jobety.com/,301,https://jobety.com/
+http://careers.stackoverflow.com/jobs,301,https://stackoverflow.com/jobs
 https://jobs.github.com/positions,200
 http://jobs.smashingmagazine.com/,200
 http://www.krop.com/,200

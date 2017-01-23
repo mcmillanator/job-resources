@@ -6,17 +6,10 @@ require 'net/http'
 find_url = Proc.new {|i| i[/http/]}
 file = 'job_resources_checked.csv'
 
-
 def test_url(url)
   begin
     uri = URI(url[/http.+(\/|$)/])
     @res = Net::HTTP.get_response(uri)
-    # http = Net::HTTP.new(uri.host, uri.port)
-    # http.read_timeout = 15
-    # http.open_timeout = 15
-    # @res = http.start() do |http|
-    #   http.get(url)
-    # end
     return true
   rescue
     @res = "Net:HTTP Error"
