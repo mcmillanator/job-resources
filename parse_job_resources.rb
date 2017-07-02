@@ -3,41 +3,36 @@ require 'pry'
 require 'csv'
 require 'net/http'
 
-find_url = Proc.new {|i| i[/http/]}
+find_url = proc { |i| i[%r{http(s)?://}] }
 file = 'job_resources_checked.csv'
 
 def test_url(url)
-  begin
-    uri = URI(url[/http.+(\/|$)/])
-    @res = Net::HTTP.get_response(uri)
-    return true
-  rescue
-    @res = "Net:HTTP Error"
-    return false
-  end
+  uri = URI(url[%r{http.+(/|$)/}])
+  @res = Net::HTTP.get_response(uri)
+  return true
+rescue
+  @res = 'Net:HTTP Error'
+  return false
 end
 
 csv = CSV.read(file)
-csv.each do |arr|
-  arr.compact!
-end
+csv.each(&:compact!)
 
 csv.each_with_index do |row|
-  next unless url = row.select(&find_url)[0]
-  next if row[1] == '200' || row[1] == '302'
+  next unless (url = row.select(&find_url)[0])
   puts "Testing #{url}\n"
-  test_url(url) ? res = @res.code : res = @res
+  res = test_url(url) ? @res.code : @res
   puts "Result: #{res}\n"
   row[1] = res
   if res == '301'
     redirect = @res.header['location']
-    if test_url(redirect)
-      row[2] = redirect
-    end
+    row[2] = redirect if test_url(redirect)
   end
 end
 
-CSV.open(file, "wb") do |row|
+CSV.open(file, 'wb') do |row|
+  row << ['URLs last checked: ', Time.now]
+  csv.shift
   csv.each do |new_row|
     row << new_row
   end
