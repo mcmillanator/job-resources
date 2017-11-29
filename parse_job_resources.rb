@@ -7,7 +7,7 @@ find_url = proc { |i| i[%r{http(s)?://}] }
 file = 'job_resources_checked.csv'
 
 def test_url(url)
-  uri = URI(url[%r{http.+(/|$)/}])
+  uri = URI(url)
   @res = Net::HTTP.get_response(uri)
   return true
 rescue
