@@ -1,4 +1,4 @@
-URLs last checked: ,2017-07-02 12:52:16 -0400
+URLs last checked: ,2017-11-28 21:57:51 -0500
 URL,Status,New URL
 Random resources,"This page is sorted, but might not have all the links from the bulk page. Please share"
 http://hackersurfing.com/,200,Form Link
@@ -21,7 +21,7 @@ https://www.jrdevjobs.com,200
 Startup oriented
 https://news.ycombinator.com/jobs,200
 https://triplebyte.com/,200
-https://angel.co/jobs,200
+https://angel.co/jobs,404
 https://www.producthunt.com/jobs,200
 
 Job boards from some cool sites
@@ -29,10 +29,10 @@ https://www.careershift.com,200
 https://www.themuse.com/jobs,200
 https://hired.com/,200
 https://www.ziprecruiter.com/jobs,301,https://www.ziprecruiter.com
-http://codepen.io/jobs,302
-http://nomadjobs.io/,301,https://remoteok.io
+http://codepen.io/jobs,301,https://codepen.io/jobs
+http://nomadjobs.io/,404,https://remoteok.io
 http://frontenddeveloperjob.com/,200
-https://www.linkedin.com/job/home?trk=hb_tab_jobs_top,999,https://www.linkedin.com/jobs/?trk=hb_tab_jobs_top
+https://www.linkedin.com/job/home?trk=hb_tab_jobs_top,301,https://www.linkedin.com/jobs/?trk=hb_tab_jobs_top
 http://authenticjobs.com,302
 http://perks.io,301,https://perks.io/
 http://jobety.com/,301,https://jobety.com/
@@ -43,17 +43,17 @@ http://www.krop.com/,302
 http://slashdot.org/job_board.pl?job-board.php,301,https://slashdot.org/job_board.pl?job-board.php
 http://dribbble.com/jobs/,301,https://dribbble.com/jobs/
 http://www.crunchboard.com/crunchboard.php,404
-https://gun.io/,200
+https://gun.io/,301,https://www.gun.io/
 https://coderwall.com/jobs,200
-http://jsfu.org/,Net:HTTP Error
+http://jsfu.org/,200
 http://jobs.nodejs.org/a/jobs/list/,301,https://nodejs.org/a/jobs/list/
 http://www.producthunt.com/jobs,301,https://www.producthunt.com/jobs
 http://indeed.com,301,http://www.indeed.com/
 http://arstechnica.com/jobs/,301,https://arstechnica.com/jobs/
 https://www.interviewstreet.com/recruit2/,301,https://www.hackerrank.com/work/?utm_source=recruit2&utm_campaign=rebranding
-http://jobs.readwriteweb.com/,301,http://readwrite.com/
+http://jobs.readwriteweb.com/,301,https://readwrite.com
 http://jobs.ajaxian.com/,200
-http://jobs.metafilter.com/,200
+http://jobs.metafilter.com/,301,https://jobs.metafilter.com/
 http://www.freshwebjobs.com/,200
 http://www.coroflot.com/jobs,301,http://www.coroflot.com/design-jobs
 http://jobs.mashable.com/jobs/search/results,200
@@ -61,7 +61,7 @@ http://jobs.boxesandarrows.com/jobs,500
 http://www.creativehotlist.com/,200
 http://www.microlancer.com/freelance-switch/,301,http://studio.envato.com/freelance-switch/
 http://www.sensationaljobs.com/,301,https://www.sensationaljobs.com/
-http://www.techinmotionevents.com/jobs,500
+http://www.techinmotionevents.com/jobs,200
 https://usv.com/jobs,302
 Exclusively remote
 https://remoteok.io/,200
@@ -69,22 +69,22 @@ https://weworkremotely.com/,200
 http://www.workingnomads.co/jobs,301,https://www.workingnomads.co/jobs
 http://remotedigest.com/,302
 https://remotecoder.io/,Net:HTTP Error
-https://jobsremotely.com/,200
+https://jobsremotely.com/,Net:HTTP Error
 https://www.wfh.io/,200
 Mobile app specific
 https://androidjobs.io/,200
 http://jobs.coreint.org/,200
 Houston / medical / oil & gas / energy specific
-http://www.biospace.com/jobs/search-results.aspx/,200
+http://www.biospace.com/jobs/search-results.aspx/,301,https://www.biospace.com/jobs/search-results.aspx/
 http://www.memorialhermann.org/careers/career-search/,301,http://www.memorialhermann.org/careers/
 http://careers.texasmedicalcenter.org/careers,302
 http://www.houstonmethodistcareers.org/jobs/?schedule=full-time&search_term=developer,301,https://houstonmethodistcareers.org/jobs/?schedule=full-time&search_term=developer
 https://sjobs.brassring.com/TGWebHost/home.aspx?partnerid=25765&siteid=5038,200
 https://ch.tbe.taleo.net/CH12/ats/careers/jobSearch.jsp?org=BCM&cws=1,302
-https://sleh.taleo.net/careersection/external/jobsearch.ftl?lang=en,200
-https://www.facebook.com/groups/houstondigitaljobs/,200
-https://www.facebook.com/groups/437880809643302/,200
-https://www.facebook.com/groups/houstonprogrammers/,200
+https://sleh.taleo.net/careersection/external/jobsearch.ftl?lang=en,Net:HTTP Error
+https://www.facebook.com/groups/houstondigitaljobs/,302
+https://www.facebook.com/groups/437880809643302/,302
+https://www.facebook.com/groups/houstonprogrammers/,302
 Creative / Agency specific job listings
 http://www.thefwa.com/jobs,301,https://thefwa.com/jobs
 http://www.awwwards.com/jobs/,301,https://www.awwwards.com/jobs/
@@ -93,7 +93,7 @@ Internships and Apprenticeships
 http://codingforinterviews.com/,200
 https://underdog.io/,200
 http://www.therotationship.com/,200
-http://www.internships.com/,200
+http://www.internships.com/,403
 Government / Clearance
 https://www.clearancejobs.com,200
 Design / UI / UX
@@ -110,7 +110,7 @@ https://www.workmarket.com/,200
 https://www.freelancersunion.org/contract-creator/,301,http://www.freelancersunion.org/contract/
 https://github.com/ericdodds/the-little-freelancer,200
 "Triangle area, NC"
-http://discourse.triangleruby.com/category/jobs,302
+http://discourse.triangleruby.com/category/jobs,301,http://www.triangledevslack.com/category/jobs
 Ruby / Rails
-http://bigtop.it/jobs/,200
+http://bigtop.it/jobs/,302
 http://jobs.rubynow.com/,301,https://jobs.rubynow.com/
