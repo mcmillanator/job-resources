@@ -78,6 +78,6 @@ end
 
 csv = read_csv
 md = markdown_table(csv)
-# csv = parse_csv(csv)
+new_csv = parse_csv(csv)
+write_csv(new_csv)
 write_markdown(md)
-#write_csv(csv)
