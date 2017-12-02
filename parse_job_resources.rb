@@ -4,7 +4,6 @@ require 'csv'
 require 'net/http'
 
 @arr = []
-@new_csv = Array.new
 @file = 'job_resources_checked.csv'
 @new_file = @file
 @find_url = proc { |i| i[%r{http(s)?://}] }
@@ -23,8 +22,13 @@ end
 def read_csv
 	csv = CSV.read(@file)
 	csv.each(&:compact!)
+end
+
+def parse_csv(csv)
+	csv.shift
+	threads = Array.new
 	csv.each do |row|
-		@new_csv << Thread.new do
+		threads << Thread.new do
 			url = row.select(&@find_url).first
 			if url 
 				res = test_url(url)
@@ -41,26 +45,23 @@ def read_csv
 			row
 		end
 	end
-	@new_csv.each(&:join)
+	threads.each(&:join)
+	threads.map {|i| i.value}
 end
 
-def parse_results
-	arr = Array.new
-	@new_csv.shift
-	@new_csv.each do |i|
-		arr << i.value
-	end
-	arr
+def markdown_table(arr)
+	binding.pry
 end
 
-def write_csv
+def write_csv(arr)
 	CSV.open(@new_file, 'wb') do |row|
 		row << ['URLs last checked: ', Time.now]
-		parse_results.each do |arr|
+		arr.each do |arr|
 			row << arr unless arr.nil?
 		end
 	end
 end
 
-read_csv
-write_csv
+csv = read_csv
+csv = parse_csv(csv)
+write_csv(csv)
