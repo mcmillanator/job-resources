@@ -5,7 +5,7 @@ require 'net/http'
 
 @arr = []
 @file = 'job_resources_checked.csv'
-@new_file = @file
+@new_file = 'out' 
 @find_url = proc { |i| i[%r{http(s)?://}] }
 
 
@@ -22,10 +22,11 @@ end
 def read_csv
 	csv = CSV.read(@file)
 	csv.each(&:compact!)
+	csv.shift
+	csv
 end
 
 def parse_csv(csv)
-	csv.shift
 	threads = Array.new
 	csv.each do |row|
 		threads << Thread.new do
@@ -50,7 +51,20 @@ def parse_csv(csv)
 end
 
 def markdown_table(arr)
-	binding.pry
+	arr.map! do |row|
+		row = row.split(',') if row.class == String
+		row.map {|i| row.index(i) == row.count-1 ? "| #{i} |" : "| #{i} "}
+	end
+	arr.insert(1, ['| ------------- | ------------- | ------------- |'])
+end
+
+def write_markdown(arr)
+	file = File.open('TEST.md', 'w')
+	arr.map!(&:join)
+	arr.map!{|i| "#{i}\n" unless i.empty?}.compact!
+	arr.each do |row|
+		file.write(row) 
+	end
 end
 
 def write_csv(arr)
@@ -63,5 +77,7 @@ def write_csv(arr)
 end
 
 csv = read_csv
-csv = parse_csv(csv)
-write_csv(csv)
+md = markdown_table(csv)
+# csv = parse_csv(csv)
+write_markdown(md)
+#write_csv(csv)
